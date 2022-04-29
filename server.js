@@ -77,7 +77,7 @@ function validateAnimal(animal) {
 }
 
 
-// app methods
+// app methods - defining a route/path to a location, this is a route handler
 app.get('/api/animals', (req, res) => {
     let results = animals;
     if(req.query) {
@@ -85,7 +85,7 @@ app.get('/api/animals', (req, res) => {
     }
     
     res.json(results);
-});
+})
 
 app.get('/api/animals/:id', (req, res) => {
     const result = findById(req.params.id, animals);
@@ -126,7 +126,7 @@ app.get('/zookeepers', (req, res) => {
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, './public/index.html'));
   });
-  
+
 app.listen(PORT, () => {
     console.log('API server now on port 3001!');
 });
